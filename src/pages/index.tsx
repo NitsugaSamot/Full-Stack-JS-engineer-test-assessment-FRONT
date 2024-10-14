@@ -27,9 +27,12 @@ export default function Home() {
   };
 
   return (
-    <div style={{ padding: '4rem' }}>
-      <SearchBar results={handleSearchResults} />
-      <Grid container spacing={2} sx={{ mt: 2 }}>
+    <div className='container'>
+      <div className='search-container'>
+        <SearchBar results={handleSearchResults} />
+      </div>
+      
+      <Grid container spacing={2} style={{ marginTop: '2rem', zIndex: 1 }}>
         {countries.length > 0 ? (
           countries.map((country) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={country.countryCode} onClick={() => handleCountryClick(country)} style={{ cursor: 'pointer' }}>
@@ -53,6 +56,3 @@ export default function Home() {
     </div>
   );
 }
-
-
-
