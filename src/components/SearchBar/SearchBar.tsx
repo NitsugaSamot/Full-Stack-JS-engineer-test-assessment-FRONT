@@ -35,7 +35,7 @@ const SearchBar = ({ results }:Props) => {
   return (
     <Box display="flex" alignItems="center" justifyContent="space-between" sx={{ mb: 2 }}>
       <TextField
-        label="Buscar país"
+        label="Search Countries"
         variant="outlined"
         size="small"
         value={searchTerm}
@@ -49,7 +49,7 @@ const SearchBar = ({ results }:Props) => {
         onClick={handleSearch}
         disabled={loading} 
       >
-        Buscar
+        Search
       </Button>
       {loading && <CircularProgress size={24} sx={{ ml: 2 }} />} 
     </Box>

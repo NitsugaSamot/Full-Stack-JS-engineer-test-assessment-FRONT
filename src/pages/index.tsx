@@ -36,14 +36,14 @@ export default function Home() {
               <Card variant="outlined">
                 <CardContent>
                   <Typography variant="h6">{country.name}</Typography>
-                  <Typography variant="body2">Código del País: {country.countryCode}</Typography>
+                  <Typography variant="body2">Code: {country.countryCode}</Typography>
                   <Image src={country.flagUrl} alt={`Bandera de ${country.name}`} width={50} height={30} />
                 </CardContent>
               </Card>
             </Grid>
           ))
         ) : (
-          <Typography>No se encontraron países.</Typography>
+          <Typography>Search all you need.</Typography>
         )}
       </Grid>
 

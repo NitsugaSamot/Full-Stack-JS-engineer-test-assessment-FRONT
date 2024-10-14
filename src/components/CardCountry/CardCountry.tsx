@@ -15,6 +15,7 @@ import {
   Paper,
 } from '@mui/material';
 import { Country } from '../../../types';
+import PopulationChart from '../Chart/PopulationChart';
 
 interface Props {
   country: Country;
@@ -24,7 +25,7 @@ interface Props {
 const CardCountry = ({ country, onClose }: Props) => {
   return (
     <Dialog open={true} onClose={onClose} maxWidth="lg" fullWidth>
-      <DialogTitle>{`Detalles de ${country.name}`}</DialogTitle>
+      <DialogTitle>{`${country.name}`}</DialogTitle>
       <DialogContent>
         <div style={{ textAlign: 'center' }}>
           <img src={country.flagUrl} alt={`Bandera de ${country.name}`} width="150" />
@@ -34,16 +35,16 @@ const CardCountry = ({ country, onClose }: Props) => {
         </div>
 
         <Typography variant="h6" gutterBottom>
-          Fronteras
+          Borders
         </Typography>
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Nombre Común</TableCell>
-                <TableCell>Nombre Oficial</TableCell>
-                <TableCell>Código de País</TableCell>
-                <TableCell>Región</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Oficial Name</TableCell>
+                <TableCell>Code Country</TableCell>
+                <TableCell>Region</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -59,9 +60,10 @@ const CardCountry = ({ country, onClose }: Props) => {
           </Table>
         </TableContainer>
 
-        <Typography variant="h6" gutterBottom>
-          Población a lo largo de los años
-        </Typography>
+        {/* <Typography variant="h6" gutterBottom>
+            Population over the years
+        </Typography> */}
+        <PopulationChart populationData={country.populationData} /> 
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
@@ -71,12 +73,13 @@ const CardCountry = ({ country, onClose }: Props) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {country.populationData.map((data) => (
-                <TableRow key={data.year}>
-                  <TableCell>{data.year}</TableCell>
-                  <TableCell>{data.value}</TableCell>
-                </TableRow>
-              ))}
+            {country.populationData.length > 0 && (
+            <TableRow>
+                <TableCell>{country.populationData[country.populationData.length - 1].year}</TableCell>
+                <TableCell>{country.populationData[country.populationData.length - 1].value}</TableCell>
+            </TableRow>
+)}
+
             </TableBody>
           </Table>
         </TableContainer>
