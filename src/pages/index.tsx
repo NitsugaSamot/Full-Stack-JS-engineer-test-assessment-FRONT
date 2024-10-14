@@ -37,7 +37,7 @@ export default function Home() {
                 <CardContent>
                   <Typography variant="h6">{country.name}</Typography>
                   <Typography variant="body2">Code: {country.countryCode}</Typography>
-                  <Image src={country.flagUrl} alt={`Bandera de ${country.name}`} width={50} height={30} />
+                  <Image src={country.flagUrl} alt={`Flag ${country.name}`} width={50} height={30} />
                 </CardContent>
               </Card>
             </Grid>
